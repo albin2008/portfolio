@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 20% 3%; /* Deep Space Void */
+    --foreground: 40 25% 96%; /* Cosmic Starlight */
+    --card: 240 18% 7%; /* Dark Matter Glass */
+    --card-foreground: 40 25% 96%;
+    --muted: 240 14% 12%;
+    --muted-foreground: 240 8% 65%;
+    --border: 240 12% 18%;
+    --accent: 38 95% 55%; /* Accretion Disk Gold #F59E0B */
+    --accent-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 240 25% 2%; /* Singularity Void #030306 */
+    --foreground: 40 30% 97%; /* Nebula Light */
+    --card: 240 20% 6%; /* Deep Event Horizon */
+    --card-foreground: 40 30% 97%;
+    --muted: 240 14% 12%;
+    --muted-foreground: 240 8% 65%;
+    --border: 38 50% 20%; /* Subtle amber border */
+    --accent: 38 95% 58%; /* Radiant Amber / Gold */
+    --accent-foreground: 240 25% 2%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: auto; /* Let Lenis handle smooth scroll */
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #030307;
+    color: #F8F7F4;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Cosmic Glass & Glow Utilities */
+.cosmic-glass {
+  background: rgba(13, 12, 22, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.18);
+}
+
+.cosmic-glow {
+  box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.25);
+}
+
+.singularity-shadow {
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.95);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.45);
+}
+
+/* Hide cursor when custom cursor is active on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor-active,
+  .custom-cursor-active a,
+  .custom-cursor-active button,
+  .custom-cursor-active input,
+  .custom-cursor-active textarea {
+    cursor: none !important;
+  }
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Editorial line text decorations */
+.editorial-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--border)) 15%, hsl(var(--border)) 85%, transparent);
+}
+
+/* Selection */
+::selection {
+  background-color: #F59E0B;
+  color: #030307;
+}
+
+/* Crisp Print Styles for Resume Modal */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  header, footer, nav, button, .no-print {
+    display: none !important;
+  }
+}
+
